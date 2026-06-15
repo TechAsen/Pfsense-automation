@@ -4,7 +4,7 @@ def vaultAddr = 'http://vault.techasen.eu:8200'
 
 def podList = ['np-mgmt', 'np-pod01', 'np-pod02', 'np-pod03', 'np-pre-pod']
 
-def allowedApprovers = ['asen.n.asenov', 'ventseslav.semenov']
+def allowedApprovers = ['asen.n.asenov']
 
 pipeline {
     agent any
