@@ -1,0 +1,37 @@
+packer:
+  sofia_dc:
+    # user: root@pam!pve-np-terraform
+    user: terraform@pam!terraform
+    url: https://10.10.20.10:8006/api2/json
+    trusted_subnet: 10.0.0.0/8
+    office_subnet: 172.16.0.0/12
+    adapter_settings:
+      gateway: 10.1.250.254
+      dns_server: 1.1.1.1
+      wan_vlan: 1150
+      lan_vlan: 1133
+      mask_length: 24
+      bridge: vmbr0
+    pfsense_template_01:
+      name: pfsense-v281-template-01
+      wan_ipv4: 10.1.250.141
+      lan_ipv4: 10.1.33.141
+      target_nodes:
+        # pve-firewall-np-01:
+        pve:
+          vmid: 781
+        # pve-firewall-np-02:
+        #   vmid: 782
+        # pve-firewall-np-03:
+        #   vmid: 783
+    pfsense_template_02:
+      name: pfsense-v281-template-02
+      wan_ipv4: 10.1.250.142
+      lan_ipv4: 10.1.33.142
+      target_nodes:
+        pve:
+          vmid: 791
+        # pve-firewall-np-02:
+        #   vmid: 792
+        # pve-firewall-np-03:
+        #   vmid: 793
